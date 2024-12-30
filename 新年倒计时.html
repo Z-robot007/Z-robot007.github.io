@@ -3,96 +3,153 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-orientation" content="landscape">
     <title>新年快乐</title>
     <style>
         /* 基本样式 */
-    body {
-        font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background: #000000;
-        color: #666;
-        font-size: 16px;
-        line-height: 1.5em;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* 响应式调整 */
-    @media (max-width: 768px) {
-        .ui {
-            width: 90%;
-            margin-left: 5%;
+        body {
+            font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #000000;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5em;
+            margin: 0;
+            padding: 0;
         }
 
-        .ui-input {
-            font-size: 20px;
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .ui {
+                width: 90%;
+                margin-left: 5%;
+            }
+
+            .ui-input {
+                font-size: 20px;
+            }
+
+            .overlay {
+                width: 90%;
+                height: auto;
+                margin: -50px 0 0 -45%;
+            }
+
+            .tabs-labels {
+                font-size: 14px;
+            }
+
+            .tabs-panel {
+                font-size: 14px;
+            }
         }
 
-        .overlay {
-            width: 90%;
-            height: auto;
-            margin: -50px 0 0 -45%;
+        /* 增加按钮大小 */
+        .commands-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        .tabs-labels {
+        .commands-item-title {
+            font-size: 16px;
+        }
+
+        .commands-item-info {
             font-size: 14px;
         }
 
-        .tabs-panel {
+        .commands-item-action {
             font-size: 14px;
         }
-    }
 
-    /* 增加按钮大小 */
-    .commands-item {
-        padding: 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
+        /* 增加触摸区域 */
+        .tabs-label {
+            padding: 10px;
+            cursor: pointer;
+        }
 
-    .commands-item-title {
-        font-size: 16px;
-    }
-
-    .commands-item-info {
-        font-size: 14px;
-    }
-
-    .commands-item-action {
-        font-size: 14px;
-    }
-
-    /* 增加触摸区域 */
-    .tabs-label {
-        padding: 10px;
-        cursor: pointer;
-    }
+        /* 强制横屏CSS */
+        @media (orientation: portrait) {
+            body {
+                transform: rotate(90deg);
+                transform-origin: left top;
+                width: 100vh;
+                height: 100vw;
+                overflow-x: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <canvas class="canvas"></canvas>
     <div class="overlay">
-      <div class="tabs">
-        <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span class="tabs-label">Share</span></div>
-        <div class="tabs-panels">
-          <ul class="tabs-panel commands">
-            <li class="commands-item"><span class="commands-item-title">Text</span><span class="commands-item-info" data-demo="Hello :)">Type anything</span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item"><span class="commands-item-title">Countdown</span><span class="commands-item-info" data-demo="#countdown 10">#countdown<span class="commands-item-mode">number</span></span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item"><span class="commands-item-title">Icon</span><span class="commands-item-info" data-demo="#icon thumbs-up">#icon<span class="commands-item-mode">name</span>&nbsp;(using <a href="//fortawesome.github.io/Font-Awesome/#icons-new" target="_blank">Font Awesome</a>)</span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item"><span class="commands-item-title">Time</span><span class="commands-item-info" data-demo="#time">#time</span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item"><span class="commands-item-title">Rectangle</span><span class="commands-item-info" data-demo="#rectangle 30x15">#rectangle<span class="commands-item-mode">width x height</span></span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item"><span class="commands-item-title">Circle</span><span class="commands-item-info" data-demo="#circle 25">#circle<span class="commands-item-mode">diameter</span></span><span class="commands-item-action">Demo</span></li>
-            <li class="commands-item commands-item--gap"><span class="commands-item-title">Animate</span><span class="commands-item-info" data-demo="The time is|#time|#countdown 3|#icon thumbs-up"><span class="commands-item-mode">command1</span>&nbsp;|<span class="commands-item-mode">command2</span></span><span class="commands-item-action">Demo</span></li>
-          </ul>
-          <div class="tabs-panel ui-details">
-            <div class="ui-details-content">
+        <div class="tabs">
+            <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span class="tabs-label">Share</span></div>
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands">
+                    <li class="commands-item"><span class="commands-item-title">Text</span><span class="commands-item-info" data-demo="Hello :)">Type anything</span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item"><span class="commands-item-title">Countdown</span><span class="commands-item-info" data-demo="#countdown 10">#countdown<span class="commands-item-mode">number</span></span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item"><span class="commands-item-title">Icon</span><span class="commands-item-info" data-demo="#icon thumbs-up">#icon<span class="commands-item-mode">name</span>&nbsp;(using <a href="//fortawesome.github.io/Font-Awesome/#icons-new" target="_blank">Font Awesome</a>)</span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item"><span class="commands-item-title">Time</span><span class="commands-item-info" data-demo="#time">#time</span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item"><span class="commands-item-title">Rectangle</span><span class="commands-item-info" data-demo="#rectangle 30x15">#rectangle<span class="commands-item-mode">width x height</span></span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item"><span class="commands-item-title">Circle</span><span class="commands-item-info" data-demo="#circle 25">#circle<span class="commands-item-mode">diameter</span></span><span class="commands-item-action">Demo</span></li>
+                    <li class="commands-item commands-item--gap"><span class="commands-item-title">Animate</span><span class="commands-item-info" data-demo="The time is|#time|#countdown 3|#icon thumbs-up"><span class="commands-item-mode">command1</span>&nbsp;|<span class="commands-item-mode">command2</span></span><span class="commands-item-action">Demo</span></li>
+                </ul>
+                <div class="tabs-panel ui-details">
+                    <div class="ui-details-content">
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
     <audio src="https://music.163.com/song/media/outer/url?id=524148556.mp3" controls></audio>
+    <script>
+        var str_text='新年倒计时|五|四|三|二|一|2025|新年快乐！|我会一直在！'
+
+        var S = {
+            init: function () {
+                var action = window.location.href,
+                    i = action.indexOf('?a=');
+
+                S.Drawing.init('.canvas');
+                S.ShapeBuilder.init();
+                S.UI.init();
+                document.body.classList.add('body--ready');
+
+                if (i !== -1) {
+                    S.UI.simulate(decodeURI(action).substring(i + 3));
+                } else {
+                    S.UI.simulate(str_text);
+                }
+
+                S.Drawing.loop(function () {
+                    S.Shape.render();
+                });
+            }
+        };
+
+        window.addEventListener('load', function () {
+            S.init();
+        });
+
+        // JavaScript检测方向
+        window.addEventListener("orientationchange", function() {
+            if (window.orientation === 0 || window.orientation === 180) { // 竖屏
+                alert("请将设备旋转到横屏模式");
+            } else { // 横屏
+                // 执行横屏时的操作
+            }
+        });
+    </script>
 </body>
+</html>
+
 <script>
  
 var str_text='新年倒计时|五|四|三|二|一|2025|新年快乐！|我会一直在！'
