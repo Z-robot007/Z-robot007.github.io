@@ -1,12 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>新年快乐</title>
-  </head>
-  <body>
+    <style>
+        /* 基本样式 */
+    body {
+        font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: #000000;
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5em;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .ui {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        .ui-input {
+            font-size: 20px;
+        }
+
+        .overlay {
+            width: 90%;
+            height: auto;
+            margin: -50px 0 0 -45%;
+        }
+
+        .tabs-labels {
+            font-size: 14px;
+        }
+
+        .tabs-panel {
+            font-size: 14px;
+        }
+    }
+
+    /* 增加按钮大小 */
+    .commands-item {
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .commands-item-title {
+        font-size: 16px;
+    }
+
+    .commands-item-info {
+        font-size: 14px;
+    }
+
+    .commands-item-action {
+        font-size: 14px;
+    }
+
+    /* 增加触摸区域 */
+    .tabs-label {
+        padding: 10px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
     <canvas class="canvas"></canvas>
     <div class="overlay">
       <div class="tabs">
@@ -28,7 +91,8 @@
         </div>
       </div>
     </div>
-    <audio  src="https://music.163.com/song/media/outer/url?id=524148556.mp3" autoplay muted></audio>
+    <audio src="https://music.163.com/song/media/outer/url?id=524148556.mp3" controls></audio>
+</body>
 <script>
  
 var str_text='新年倒计时|五|四|三|二|一|2025|新年快乐！|我会一直在！'
@@ -911,17 +975,33 @@ a:hover {
 body,
 .overlay {
     -webkit-perspective: 1000px;
-    -webkit-perspective-origin-y: 25%
+    -webkit-perspective-origin-y: 25%;
 }
 
-    .body--ready {
-      background: -webkit-linear-gradient(to bottom, #000000 0%, #000000 100%);
-      background: -moz-linear-gradient(to bottom, #000000 0%, #000000 100%);
-      background: -o-linear-gradient(to bottom, #000000 0%, #000000 100%);
-      background: -ms-linear-gradient(to bottom, #000000 0%, #000000 100%);
-      background: linear-gradient(to bottom, #000000 0%, #000000 100%);
+    /* 增加按钮大小 */
+    .commands-item {
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
     }
 
+    .commands-item-title {
+        font-size: 16px;
+    }
+
+    .commands-item-info {
+        font-size: 14px;
+    }
+
+    .commands-item-action {
+        font-size: 14px;
+    }
+
+    /* 增加触摸区域 */
+    .tabs-label {
+        padding: 10px;
+        cursor: pointer;
+    }
  
 .body--ready .overlay {
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.694, .0482, .335, 1), opacity .7s cubic-bezier(0.694, .0482, .335, 1);
