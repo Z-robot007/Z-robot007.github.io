@@ -1,4 +1,4 @@
-var loverName = "💗楚雨荨，爱你哟💗"
+var loverName = "💗小b东西，爱你哟💗"
 const colors = [
     "#eec996",
     "#8fb7d3",
