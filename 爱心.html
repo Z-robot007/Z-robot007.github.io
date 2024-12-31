@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>💗 Love you 💗 My Dear XXX💗</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #pinkboard {
+            animation: anim 1.5s ease-in-out infinite;
+            -webkit-animation: anim 1.5s ease-in-out infinite;
+            -o-animation: anim 1.5s ease-in-out infinite;
+            -moz-animation: anim 1.5s ease-in-out infinite;
+        }
+
+        @keyframes anim {
+            0% {
+                transform: scale(0.8);
+            }
+
+            25% {
+                transform: scale(0.7);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(0.7);
+            }
+
+            100% {
+                transform: scale(0.8);
+            }
+        }
+
+        @-webkit-keyframes anim {
+            0% {
+                -webkit-transform: scale(0.8);
+            }
+
+            25% {
+                -webkit-transform: scale(0.7);
+            }
+
+            50% {
+                -webkit-transform: scale(1);
+            }
+
+            75% {
+                -webkit-transform: scale(0.7);
+            }
+
+            100% {
+                -webkit-transform: scale(0.8);
+            }
+        }
+
+        @-o-keyframes anim {
+            0% {
+                -o-transform: scale(0.8);
+            }
+
+            25% {
+                -o-transform: scale(0.7);
+            }
+
+            50% {
+                -o-transform: scale(1);
+            }
+
+            75% {
+                -o-transform: scale(0.7);
+            }
+
+            100% {
+                -o-transform: scale(0.8);
+            }
+        }
+
+        @-moz-keyframes anim {
+            0% {
+                -moz-transform: scale(0.8);
+            }
+
+            25% {
+                -moz-transform: scale(0.7);
+            }
+
+            50% {
+                -moz-transform: scale(1);
+            }
+
+            75% {
+                -moz-transform: scale(0.7);
+            }
+
+            100% {
+                -moz-transform: scale(0.8);
+            }
+        }
+
+        #name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: -20px;
+            font-size: 46px;
+            color: #ea80b0;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="pinkboard" width="1920" height="947"></canvas>
+<canvas id="canvas" width="1920" height="947"></canvas>
+
+<script src="./server.js"></script>
+
+</body>
